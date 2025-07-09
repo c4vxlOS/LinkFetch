@@ -43,6 +43,25 @@
     border-radius: 10px;
 }
 
+.complete__modal .row {
+    gap: 15px;
+    width: max-content;
+    max-width: 100%;
+    margin: auto;
+}
+
+.complete__modal .row div {
+    margin: auto;
+    text-align: center;
+    width: 13ch;
+    padding: 10px;
+    border-radius: 15px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.complete__modal .row div:hover { background: var(--bg-2); }
+
 .complete__modal .circle {
     border-radius: 300px;
     width: 10ch;
@@ -55,22 +74,8 @@
 .complete__modal .circle img {
     width: 100%;
     height: 100%;
+    aspect-ratio: 1 / 1;
+    max-width: 7ch;
+    margin: auto;
     object-fit: contain;
 }
-
-.complete__modal .row {
-    gap: 15px;
-    width: max-content;
-    margin: auto;
-}
-
-.complete__modal .row div {
-    text-align: center;
-    width: 13ch;
-    padding: 10px;
-    border-radius: 15px;
-    user-select: none;
-    cursor: pointer;
-}
-
-.complete__modal .row div:hover { background: var(--bg-2); }
