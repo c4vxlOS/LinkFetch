@@ -1,0 +1,90 @@
+:root {
+    --bg: #101011;
+    --bg-1: hsl(from var(--bg) h s 7%);
+    --bg-2: hsl(from var(--bg) h s 10%);
+    --highlight: #d6d0d0;
+    --border: hsl(from var(--bg) h s 25%);
+    --primary: #121212;
+    --font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --accent: #ffffff;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(161deg, var(--bg) 50%, var(--bg-1) 88%);
+    background-repeat: no-repeat;
+    gap: 35px;
+    align-items: center;
+    min-height: 100vh;
+}
+
+::-webkit-scrollbar { width: 0px; height: 1px; }
+::-webkit-scrollbar-thumb { background-color: var(--accent); }
+
+.row, .col { display: flex; }
+.row { flex-direction: row; }
+.col { flex-direction: column; }
+.center { align-items: center; justify-content: center; }
+.gap { gap: 15px; }
+.wrap { flex-wrap: wrap; }
+
+* {
+    box-sizing: border-box;
+    color: var(--accent);
+    outline: none;
+    font-family: var(--font);
+    transition: .2s;
+}
+
+.primary {
+    background: var(--primary);
+    padding: 8px 30px;
+    border: 1px solid var(--border);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+}
+
+button.primary:hover, .primary.active {
+    opacity: .6;
+    cursor: pointer;
+}
+input.primary { padding: 8px; }
+textarea.primary { padding: 8px; resize: none; height: 40ch; width: 100%; }
+
+.title {
+    font-weight: 100;
+    font-size: 1.7rem;
+    margin-bottom: 3px;
+    opacity: .9;
+    margin: 0;
+}
+
+
+.input__bar { gap: 2px; }
+.input__bar input { border-radius: 10px 0px 0px 10px; width: 100%; }
+.input__bar button { border-radius: 0px 10px 10px 0px; width: max-content; }
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg);
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal.active {
+    opacity: 1;
+    pointer-events: unset;
+}
+
+.modal .modal__content {
+    max-width: min(90vw, 90ch);
+}

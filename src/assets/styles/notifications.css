@@ -1,0 +1,37 @@
+.notification__container {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: min(96vw, 40ch);
+    z-index: 999999;
+    gap: 10px;
+}
+.notification__container .primary {
+    width: 100%;
+    padding: 10px 20px;
+    overflow: hidden;
+    padding-bottom: 20px;
+}
+.notification__container .primary button {
+    padding: 8px;
+}
+.notification__container .primary button:first-of-type { margin-bottom: 3px; }
+.notification__container .primary p:nth-child(1) {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 5px;
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.notification__container .primary p {
+    margin: 0;
+    color: var(--highlight);
+    opacity: .7;
+}
+
+.notification__container .primary .bar {
+    height: 4px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkFetch</title>
+
+    <link rel="stylesheet" href="assets/styles/global.css">
+    <link rel="stylesheet" href="assets/styles/index.css">
+    <link rel="stylesheet" href="assets/styles/notifications.css">
+</head>
+<body class="col center">
+    <div class="notification__container col center" id="notification__container"></div>
+
+    <div class="primary" style="width: min(97vw, 70ch);">
+        <p style="font-size: 1.5rem; margin-bottom: 3px;">LinkFetch</p>
+        <hr>
+        <p style="opacity: .7;">Using this Application you can download media with ease.</p>
+
+        <br>
+
+        <div class="input__bar row" style="width: 100%;">
+            <input onfocus="this.select()" id="url__input" autofocus type="text" class="primary" placeholder="Paste your url here" style="flex-grow: 1;" onkeypress="event.keyCode == 13 ? submit() : null">
+            <button class="primary" onclick="submit()">Go</button>
+        </div>
+        <br><br>
+        <p>Made by <a href="https://c4vxl.de">c4vxl</a></p>
+    </div>
+
+    <div class="modal col center processing__modal">
+        <div class="modal__content primary row center wrap" style="gap: 30px;">
+            <div>
+                <p style="font-size: 1.5rem; margin-bottom: 3px;">Processing...</p>
+                <hr>
+                <p style="opacity: .7;">Sit back, relax. We'll be done soon!</p>
+            </div>
+
+            <br>
+            <span class="loader"></span>
+            <br>
+        </div>
+    </div>
+
+    <div class="modal col center complete__modal">
+        <div class="modal__content primary" style="width: 100%;">
+            <div style="margin-right: auto;">
+                <p style="font-size: 1.5rem; margin-bottom: 3px;">Export media</p>
+                <hr>
+            </div>
+            
+            <br>
+
+            <div class="preview col center">
+                <img src="" alt="thumb" class="thumbnail">
+                <p class="preview__title"></p>
+            </div>
+
+            <div class="row wrap options">
+                <div class="col center" data-action="copy">
+                    <span class="primary circle"><img src="assets/resources/copy.png"></span>
+                    <p>Copy url</p>
+                </div>
+
+                <div class="col center" data-action="visit">
+                    <span class="primary circle"><img style="padding: 7px;" src="assets/resources/link.png"></span>
+                    <p>Visit url</p>
+                </div>
+
+                <div class="col center" data-action="download">
+                    <span class="primary circle"><img src="assets/resources/download.png"></span>
+                    <p>Download</p>
+                </div>
+
+                <div class="col center" data-action="fileserver">
+                    <span class="primary circle"><img src="assets/resources/fileserver.png"></span>
+                    <p>FileServer</p>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="row center" style="width: 100%; margin-bottom: 9px;">
+                <label for="complete__select__format">Format:</label>
+                
+                <select name="complete__select__format" id="complete__select__format" class="primary" style="flex-grow: 1;">
+                    
+                </select>
+            </div>
+
+            <div class="row center" style="width: 100%; justify-content: space-between; gap: 15px;">
+                <label for="complete__url__field" style="text-wrap: nowrap; margin-right: 30px;">Url:</label>
+                <input id="complete__url__field" disabled type="text" class="primary" style="width: 100%;" value="">
+            </div>
+        </div>
+    </div>
+
+    <div class="modal col center fileserver__export__modal">
+        <div class="modal__content col primary" style="width: 100%; gap: 7px;">
+            <div>
+                <p style="font-size: 1.5rem; margin-bottom: 3px;">Export to FileServer</p>
+                <hr>
+            </div>
+            
+            <div class="row center" style="width: 100%; gap: 10px; justify-content: space-between;">
+                <label for="export__fileserver__id">File Host project:</label>
+                <input type="text" class="primary" style="flex-grow: 1;" placeholder="Enter the name of the FileServer project" id="export__fileserver__id">
+            </div>
+
+            <div class="row center" style="width: 100%; gap: 10px; justify-content: space-between;">
+                <label for="export__fileserver__instance" style="margin-right: 5px;">File Host server:</label>
+                <input type="text" class="primary" style="flex-grow: 1;" placeholder="Set the server of the FileServer instance" id="export__fileserver__instance">
+            </div>
+
+            <br>
+            <button class="primary" data-modal-close>Submit</button>
+        </div>
+    </div>
+</body>
+</html>
+
+<script defer src="assets/scripts/global.js"></script>
+<script defer src="assets/scripts/elements.js"></script>
+<script defer src="assets/scripts/utils.js"></script>
