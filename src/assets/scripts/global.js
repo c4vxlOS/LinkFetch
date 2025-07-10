@@ -9,11 +9,7 @@ const fileServerExportModal = document.querySelector(".fileserver__export__modal
 const submit = async () => {
     processingModal.classList.add("active");
     
-    fetch(`/fetch/`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(document.querySelector('#url__input').value)
-    }).then(x => x.json()).then(x => {
+    fetch(`/fetch/${document.querySelector('#url__input').value}`).then(x => x.json()).then(x => {
         data = x;
         processingModal.classList.remove("active");
         complete(x);
@@ -47,11 +43,14 @@ const complete = (data) => {
             .catch((e) => showNotification('Error', 'Something went wrong.')) || showNotification("Error", "Clipboard api not working on HTTP!")
     });
 
-    set_action("visit", () => window.open(get_format().url));
+    set_action("visit", () => {
+        const format = get_format();
+        window.open(`/stream/${format.type}/${format.quality}/${data.src}`);
+    });
     set_action("download", () => {
         showNotification("Downloading", "Starting download...", "green");
         const format = get_format();
-        download_url(format.url, format.filename);
+        download_url(`/direct_stream/${format.url}`, format.filename);
     });
     set_action("fileserver", async () => {
         const fsi = await (await fetch("/fileserver")).json();

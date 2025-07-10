@@ -1,7 +1,7 @@
 let corsProxy = "https://corsproxy.io/?";
-const fetch_cors = async (url) => {
+const fetch_cors = async (url, args = {}) => {
     try {
-        return (await fetch(url));
+        return (await fetch(url, args));
     } catch (e) {
         if (url.startsWith(corsProxy)) {
             showNotification("Error", `Error while downloading: ${e}`);
@@ -33,6 +33,6 @@ const showNotification = (title, content, color = "red", time = 8000) => {
     element.querySelector(".bar").animate([ { width: '100%', opacity: 1 }, { width: '0%', opacity: 0 } ], { duration: time, fill: 'forwards' } ).onfinish = () => element.remove();
 }
 
-const download_url = (url, filename) => {
-    fetch_cors(url).then(x => x.blob()).then(x => download(x, filename));
+const download_url = (url, filename, args = {}) => {
+    fetch_cors(url, args).then(x => x.blob()).then(x => download(x, filename));
 }
