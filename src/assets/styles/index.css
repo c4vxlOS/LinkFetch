@@ -50,7 +50,7 @@
     margin: auto;
 }
 
-.complete__modal .row div {
+.complete__modal .row .item {
     margin: auto;
     text-align: center;
     width: 13ch;
@@ -60,7 +60,7 @@
     cursor: pointer;
 }
 
-.complete__modal .row div:hover { background: var(--bg-2); }
+.complete__modal .row .item:hover { background: var(--bg-2); }
 
 .complete__modal .circle {
     border-radius: 300px;
